@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# ProgressSync
-=======
 # 🛠️ RescuePC Repairs - ProgressSync
 
 ![RescuePC Logo](assets/logo.png)
@@ -208,4 +205,3 @@ This project is licensed under the MIT License - see [LICENSE.md](assets/LICENSE
 ---
 
 Made with ❤️ by [RescuePC Repairs] - [Website](https://rescuepc-repairs.github.io/RescuePC-Repair-Toolkit/index.html)
->>>>>>> 64a0cc0 (Initial commit - Setting up ProgressSync)
