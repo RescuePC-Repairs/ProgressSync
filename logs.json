@@ -1,0 +1,13 @@
+import os
+import json
+
+logs = []
+for root, dirs, files in os.walk('logs'):
+    for file in files:
+        if file.endswith('.md'):
+            path = os.path.join(root, file).replace('\\', '/')
+            date = file.replace('.md', '')
+            logs.append({'date': date, 'path': path})
+
+with open('logs.json', 'w') as f:
+    json.dump({'logs': logs}, f, indent=2)

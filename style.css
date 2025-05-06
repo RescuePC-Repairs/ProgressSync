@@ -1,0 +1,546 @@
+/* 
+   RescuePC Repairs - ProgressSync
+   Enhanced CSS - Modern, clean, and responsive design
+*/
+
+/* ========== VARIABLES ========== */
+:root {
+    /* Colors */
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --secondary: #475569;
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --light: #f8fafc;
+    --dark: #1e293b;
+    --border: #e2e8f0;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    
+    /* Transitions */
+    --transition: all 0.3s ease;
+    
+    /* Fonts */
+    --font-primary: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    
+    /* Border Radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
+  }
+  
+  /* Dark mode variables */
+  .dark-mode {
+    --primary: #3b82f6;
+    --primary-hover: #60a5fa;
+    --secondary: #94a3b8;
+    --light: #1e293b;
+    --dark: #f8fafc;
+    --border: #334155;
+  }
+  
+  /* ========== BASE STYLES ========== */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: var(--font-primary);
+    background-color: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+    padding: var(--spacing-md);
+    transition: var(--transition);
+    min-height: 100vh;
+  }
+  
+  body.dark-mode {
+    background-color: var(--dark);
+    color: var(--light);
+  }
+  
+  /* ========== TYPOGRAPHY ========== */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  h3 {
+    font-size: 1.75rem;
+  }
+  
+  a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: var(--transition);
+  }
+  
+  a:hover {
+    color: var(--primary-hover);
+  }
+  
+  /* ========== LAYOUT ========== */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .flex-column {
+    flex-direction: column;
+  }
+  
+  .align-center {
+    align-items: center;
+  }
+  
+  .justify-between {
+    justify-content: space-between;
+  }
+  
+  /* ========== HEADER ========== */
+  header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-lg) 0;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+    background: linear-gradient(135deg, var(--primary), #6366f1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+  }
+  
+  header p {
+    font-size: 1.2rem;
+    color: var(--secondary);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .logo-container img {
+    max-height: 80px;
+    margin-right: var(--spacing-sm);
+  }
+  
+  /* ========== BUTTONS ========== */
+  .btn {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+  }
+  
+  .btn-primary {
+    background-color: var(--primary);
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--primary-hover);
+  }
+  
+  .btn-secondary {
+    background-color: var(--secondary);
+    color: white;
+  }
+  
+  .btn-danger {
+    background-color: var(--danger);
+    color: white;
+  }
+  
+  .btn-warning {
+    background-color: var(--warning);
+    color: white;
+  }
+  
+  .btn-sm {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.875rem;
+  }
+  
+  #darkModeToggle {
+    background: var(--secondary);
+    color: white;
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    transition: var(--transition);
+    margin: 0 auto;
+  }
+  
+  #darkModeToggle:hover {
+    background: var(--primary);
+  }
+  
+  #darkModeToggle::before {
+    content: '🌙';
+    font-size: 1rem;
+  }
+  
+  body.dark-mode #darkModeToggle::before {
+    content: '☀️';
+  }
+  
+  /* ========== FORM STYLES ========== */
+  form {
+    background: white;
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--spacing-xl);
+    transition: var(--transition);
+    border: 1px solid var(--border);
+  }
+  
+  form.dark-mode {
+    background: var(--dark);
+    color: var(--light);
+    border-color: var(--border);
+  }
+  
+  .form-group {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+    color: var(--secondary);
+  }
+  
+  form input[type="date"],
+  form textarea {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+    background-color: white;
+  }
+  
+  body.dark-mode form input[type="date"],
+  body.dark-mode form textarea {
+    background-color: var(--dark);
+    color: var(--light);
+    border-color: var(--border);
+  }
+  
+  form input[type="date"]:focus,
+  form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  }
+  
+  form textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  form button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+    width: 100%;
+    font-size: 1rem;
+  }
+  
+  form button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+  }
+  
+  /* ========== LOG LIST STYLING ========== */
+  .log-list {
+    margin-top: var(--spacing-xl);
+  }
+  
+  .log-list h2 {
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    padding-bottom: var(--spacing-sm);
+  }
+  
+  .log-list h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    border-radius: var(--radius-sm);
+  }
+  
+  #logList {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #logList li {
+    background: white;
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-lg);
+    border-left: 5px solid var(--primary);
+    border-radius: var(--radius-md);
+    position: relative;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  #logList li:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+  
+  body.dark-mode #logList li {
+    background: var(--dark);
+    border-left-color: var(--primary);
+    color: var(--light);
+  }
+  
+  body.dark-mode #logList li:hover {
+    background: #2d3748;
+  }
+  
+  #logList li .log-date {
+    font-weight: bold;
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+  }
+  
+  #logList li .log-date::before {
+    content: '📅';
+    margin-right: var(--spacing-sm);
+  }
+  
+  #logList li .log-text {
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+  }
+  
+  .log-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+  }
+  
+  #logList li .edit-btn,
+  #logList li .delete-btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: 0.875rem;
+  }
+  
+  #logList li .edit-btn {
+    background: var(--warning);
+    color: white;
+  }
+  
+  #logList li .edit-btn::before {
+    content: '✏️';
+    font-size: 0.875rem;
+  }
+  
+  #logList li .delete-btn {
+    background: var(--danger);
+    color: white;
+  }
+  
+  #logList li .delete-btn::before {
+    content: '🗑️';
+    font-size: 0.875rem;
+  }
+  
+  #logList li .edit-btn:hover {
+    background: #d97706;
+    transform: translateY(-2px);
+  }
+  
+  #logList li .delete-btn:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+  }
+  
+  /* ========== ANIMATIONS ========== */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  #logList li {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  /* ========== FOOTER ========== */
+  footer {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-lg) 0;
+    color: var(--secondary);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border);
+  }
+  
+  footer a {
+    color: var(--primary);
+  }
+  
+  /* ========== RESPONSIVE DESIGN ========== */
+  @media (max-width: 1024px) {
+    .container {
+      width: 95%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.2rem;
+    }
+    
+    h2 {
+      font-size: 1.8rem;
+    }
+    
+    form {
+      padding: var(--spacing-lg);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    header h1 {
+      font-size: 1.8rem;
+    }
+    
+    form {
+      padding: var(--spacing-md);
+    }
+    
+    .log-actions {
+      position: static;
+      justify-content: flex-end;
+      margin-top: var(--spacing-md);
+    }
+    
+    #logList li {
+      padding: var(--spacing-md);
+    }
+  }
+  /* ========== MODAL STYLES ========== */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal.active {
+    display: flex; /* Only displayed when .active class is added */
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    max-width: 500px;
+    width: 90%;
+    animation: modalFadeIn 0.3s ease-out;
+  }
+  
+  body.dark-mode .modal-content {
+    background-color: var(--dark);
+    color: var(--light);
+  }
+  
+  .modal h3 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+    color: var(--danger);
+  }
+  
+  .modal p {
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-md);
+  }
+  
+  @keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }

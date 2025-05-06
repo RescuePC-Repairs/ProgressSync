@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ProgressSync - Track your daily progress and repairs for RescuePC">
+  <title>ProgressSync | RescuePC Repairs</title>
+  <!-- Font import -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Favicon -->
+  <link rel="icon" href="assets/logo.png" type="image/png">
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="assets/logo.png" alt="RescuePC Repairs Logo">
+      <h1>ProgressSync</h1>
+    </div>
+    <p>Track Repairs & Daily Progress</p>
+    <button id="darkModeToggle" class="btn" aria-label="Toggle dark mode">Switch Theme</button>
+  </header>
+
+  <main class="container">
+    <section class="log-entry">
+      <form id="logForm">
+        <h2>Add New Entry</h2>
+        
+        <div class="form-group">
+          <label for="logDate">Date:</label>
+          <input type="date" id="logDate" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="logEntry">Progress Details:</label>
+          <textarea 
+            id="logEntry" 
+            placeholder="Describe repairs completed, steps taken, and tasks for tomorrow..." 
+            required
+          ></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="logStatus">Status:</label>
+          <select id="logStatus" required>
+            <option value="in-progress">In Progress</option>
+            <option value="completed">Completed</option>
+            <option value="waiting">Waiting for Parts</option>
+            <option value="customer-action">Customer Action Required</option>
+          </select>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Save Entry</button>
+      </form>
+    </section>
+
+    <section class="log-list">
+      <div class="list-header">
+        <h2>Daily Logs</h2>
+        <div class="search-container">
+          <input 
+            type="text" 
+            id="searchLogs" 
+            placeholder="Search logs..." 
+            aria-label="Search logs"
+            onkeyup="filterLogs()"
+          >
+          <button id="clearSearch" class="btn btn-sm" aria-label="Clear search">✕</button>
+        </div>
+      </div>
+      
+      <div class="filter-options">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="in-progress">In Progress</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+        <button class="filter-btn" data-filter="waiting">Waiting</button>
+      </div>
+      
+      <ul id="logList"></ul>
+      
+      <div id="pagination" class="pagination">
+        <!-- Pagination will be inserted by JavaScript -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 RescuePC Repairs. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="docs/README.md">Documentation</a>
+        <span class="separator">|</span>
+        <a href="https://github.com/RescuePC-Repairs/ProgressSync">GitHub</a>
+        <span class="separator">|</span>
+        <a href="#" id="exportDataBtn">Export Data</a>
+      </div>
+    </div>
+    <p class="version">ProgressSync v1.2.0</p>
+  </footer>
+
+  <!-- Template for log entries (will be cloned by JavaScript) -->
+  <template id="logItemTemplate">
+    <li class="log-item">
+      <div class="log-header">
+        <span class="log-date"></span>
+        <span class="log-status"></span>
+      </div>
+      <div class="log-text"></div>
+      <div class="log-actions">
+        <button class="edit-btn btn btn-sm" aria-label="Edit entry">Edit</button>
+        <button class="delete-btn btn btn-sm" aria-label="Delete entry">Delete</button>
+      </div>
+    </li>
+  </template>
+
+  <!-- Modal for confirming deletion (hidden by default) -->
+  <div id="deleteModal" class="modal">
+    <div class="modal-content">
+      <h3>Confirm Deletion</h3>
+      <p>Are you sure you want to delete this entry? This action cannot be undone.</p>
+      <div class="modal-actions">
+        <button id="cancelDelete" class="btn btn-secondary">Cancel</button>
+        <button id="confirmDelete" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript -->
+  <script src="main.js"></script>
+</body>
+</html>
